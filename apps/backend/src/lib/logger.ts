@@ -8,7 +8,7 @@ export const logger = WinstonModule.createLogger({
     winston.format.timestamp(),
   ),
   transports: new winston.transports.Console({
-    format: utilities.format.nestLike('hunt-api', { prettyPrint: true, colors: true }),
+    format: utilities.format.nestLike('social-media', { prettyPrint: true, colors: true }),
   }),
 });
 

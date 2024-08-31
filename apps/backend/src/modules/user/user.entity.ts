@@ -1,12 +1,8 @@
-import { Property } from '@mikro-orm/core';
-import { Entity, EntityRepositoryType, PrimaryKey } from '@mikro-orm/postgresql';
+import { Entity, Hidden, Property } from '@mikro-orm/core';
+import { PrimaryKey } from '@mikro-orm/postgresql';
 
-import { UserRepository } from './user.repository';
-
-@Entity({ repository: () => UserRepository })
+@Entity()
 export class User {
-  [EntityRepositoryType]?: UserRepository;
-
   @PrimaryKey()
   id: number;
 
@@ -16,6 +12,6 @@ export class User {
   @Property({ unique: true })
   email: string;
 
-  @Property()
-  password: string;
+  @Property({ hidden: true })
+  password: Hidden<string>;
 }
